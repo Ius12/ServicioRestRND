@@ -34,7 +34,7 @@ namespace ServicioRestRND.Controllers
             return persona;
         }
 
-        public String Get(int idFuente)
+        public List<PersonaRND> Get(int idFuente)
         {
             string res = string.Empty;
 
@@ -59,10 +59,10 @@ namespace ServicioRestRND.Controllers
 
             persona.Add(personaItem);
 
-            res = Newtonsoft.Json.JsonConvert.SerializeObject(persona);
+            //res = Newtonsoft.Json.JsonConvert.SerializeObject(persona);
 
 
-            return res;
+            return persona;
         }
     }
 }
