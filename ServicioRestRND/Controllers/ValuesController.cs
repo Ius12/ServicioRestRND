@@ -61,6 +61,7 @@ namespace ServicioRestRND.Controllers
 
             res = Newtonsoft.Json.JsonConvert.SerializeObject(persona);
 
+
             return res;
         }
     }
