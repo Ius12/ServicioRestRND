@@ -7,33 +7,61 @@ using System.Web.Http;
 
 namespace ServicioRestRND.Controllers
 {
+
+    public class PersonaRND
+    {
+        public int idFuente;
+        public string nombre;
+        public string apellido;
+        public string curp;
+        public string fechaNacimiento;
+        public string delito;
+    }
     public class ValuesController : ApiController
     {
-        // GET api/values
-        public IEnumerable<string> Get()
+
+
+        public PersonaRND Buscar(string nombre, string apellido, string curp, string fechanacimiento)
         {
-            return new string[] { "value1", "value2" };
+            PersonaRND persona = new PersonaRND();
+            persona.idFuente = 2;
+            persona.nombre = nombre;
+            persona.apellido = apellido;
+            persona.curp = curp;
+            persona.fechaNacimiento = fechanacimiento;
+            persona.delito = "robo";
+
+            return persona;
         }
 
-        // GET api/values/5
-        public string Get(int id)
+        public String Get(int idFuente)
         {
-            return "value";
-        }
+            string res = string.Empty;
 
-        // POST api/values
-        public void Post([FromBody] string value)
-        {
-        }
+            List<PersonaRND> persona = new List<PersonaRND>();
+            PersonaRND personaItem = new PersonaRND();
+            personaItem.idFuente = 2;
+            personaItem.nombre = "Francisco";
+            personaItem.apellido = "Rios";
+            personaItem.curp = "wew324";
+            personaItem.fechaNacimiento = "04052023";
+            personaItem.delito = "robo";
 
-        // PUT api/values/5
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+            persona.Add(personaItem);
+            personaItem = new PersonaRND();
 
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
+            personaItem.idFuente = 2;
+            personaItem.nombre = "Luis";
+            personaItem.apellido = "Aldama";
+            personaItem.curp = "wqeq2424242";
+            personaItem.fechaNacimiento = "04012023";
+            personaItem.delito = "fraude";
+
+            persona.Add(personaItem);
+
+            res = Newtonsoft.Json.JsonConvert.SerializeObject(persona);
+
+            return res;
         }
     }
 }
