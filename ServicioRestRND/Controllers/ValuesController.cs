@@ -58,10 +58,7 @@ namespace ServicioRestRND.Controllers
             personaItem.delito = "fraude";
 
             persona.Add(personaItem);
-
             //res = Newtonsoft.Json.JsonConvert.SerializeObject(persona);
-
-
             return persona;
         }
     }
